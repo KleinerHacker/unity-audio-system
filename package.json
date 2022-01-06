@@ -1,0 +1,24 @@
+{
+  "name": "org.pcsoft.sfx-system",
+  "version": "1.0.0",
+  "displayName": "SFX System",
+  "description": "SFX System for Unity",
+  "unity": "2021.1",
+  "keywords": [
+    "audio",
+    "SFX",
+    "tooling"
+  ],
+  "dependencies": {
+    "org.pcsoft.editor-ex": "1.1.0",
+    "org.pcsoft.asset-loader": "1.1.0",
+    "org.pcsoft.prefs-ex": "1.2.0",
+    "org.pcsoft.common-ex": "1.1.2",
+    "org.pcsoft.animation": "1.2.3"
+  },
+  "author": {
+    "name": "Pfeiffer C Soft",
+    "email": "kl3in3rhack3r@gmail.com",
+    "url": "https://github.com/KleinerHacker/unity-sfx-system"
+  }
+}
