@@ -49,21 +49,14 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
 
         #region Properties
 
-        private float _volume;
         private AudioMixerGroup _audioMixerGroup;
         
         internal string Key { get; set; }
-        private string PrefKey => "sfx-system." + Key;
 
         internal float Volume
         {
-            get => _volume;
-            set
-            {
-                _volume = value;
-                _audioSource.volume = value;
-                PlayerPrefsEx.SetFloat(PrefKey, value, true);
-            }
+            get => _audioSource.volume;
+            set => _audioSource.volume = value;
         }
 
         #endregion
@@ -83,7 +76,6 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
 
         internal void Initialize(SfxData data)
         {
-            Volume = PlayerPrefsEx.GetFloat(PrefKey, data.InitialValue);
             _audioSource.outputAudioMixerGroup = data.MixerGroup;
             _audioSource.playOnAwake = false;
             _audioSource.loop = false;
