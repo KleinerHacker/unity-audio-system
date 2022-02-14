@@ -30,12 +30,12 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime
             set => _controller.Volume = value;
         }
 
-        public void PlayInLoop(SfxClip clip) => _controller.PlayInLoop(clip);
+        public ISfxPlayedClip PlayInLoop(SfxClip clip) => _controller.PlayInLoop(clip);
 
         public void PlayOneShot(SfxClip clip) => _controller.PlayOneShot(clip);
 
         public void PlayOneShot(AudioClip clip) => _controller.PlayOneShot(clip);
 
-        public void PlayAsAmbient(SfxClip clip) => _controller.PlayAsAmbient(clip);
+        public ISfxPlayedClip PlayAsAmbient(SfxClip clip) => _controller.PlayAsAmbient(clip);
     }
 }

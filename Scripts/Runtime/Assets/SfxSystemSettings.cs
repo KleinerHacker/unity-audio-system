@@ -5,6 +5,7 @@ using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Serialization;
 
 namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
 {
@@ -101,8 +102,9 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
         private AudioMixerGroup mixerGroup;
 
         [SerializeField]
+        [FormerlySerializedAs("initialValue")]
         [Range(0f, 1f)]
-        private float initialValue = 1f;
+        private float initialVolume = 1f;
 
         #endregion
 
@@ -114,7 +116,7 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
 
         public AudioMixerGroup MixerGroup => mixerGroup;
 
-        public float InitialValue => initialValue;
+        public float InitialVolume => initialVolume;
 
         #endregion
     }

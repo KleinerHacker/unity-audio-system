@@ -22,7 +22,7 @@ namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Provider
         private SerializedObject _settings;
         private SerializedProperty _itemsProperty;
         private SerializedProperty _mixerGroupProperty;
-        private SerializedProperty _initialValueProperty;
+        private SerializedProperty _initialVolumeProperty;
         private SerializedProperty _ambienceMinDelayProperty;
         private SerializedProperty _ambienceMaxDelayProperty;
 
@@ -43,7 +43,7 @@ namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Provider
             _itemsProperty = _settings.FindProperty("items");
             var dataProperty = _settings.FindProperty("data");
             _mixerGroupProperty = dataProperty.FindPropertyRelative("mixerGroup");
-            _initialValueProperty = dataProperty.FindPropertyRelative("initialValue");
+            _initialVolumeProperty = dataProperty.FindPropertyRelative("initialVolume");
             _ambienceMinDelayProperty = dataProperty.FindPropertyRelative("minAmbientDelay");
             _ambienceMaxDelayProperty = dataProperty.FindPropertyRelative("maxAmbientDelay");
 
@@ -56,7 +56,7 @@ namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Provider
 
             EditorGUILayout.LabelField("Default SFX System", EditorStyles.boldLabel);
             EditorGUILayout.PropertyField(_mixerGroupProperty, new GUIContent("Mixer Group"));
-            EditorGUILayout.PropertyField(_initialValueProperty, new GUIContent("Initial Value"));
+            EditorGUILayout.PropertyField(_initialVolumeProperty, new GUIContent("Initial Volume"));
             _ambienceFold = EditorGUILayout.BeginFoldoutHeaderGroup(_ambienceFold, "Ambience Settings");
             if (_ambienceFold)
             {

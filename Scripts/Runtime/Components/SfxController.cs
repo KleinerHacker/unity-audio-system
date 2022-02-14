@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityAnimation.Runtime.animation.Scripts.Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.SceneManagement;
 using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
 using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types;
-using Random = UnityEngine.Random;
 
 namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
 {
@@ -29,7 +25,7 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
             var go = new GameObject("SFX System");
             DontDestroyOnLoad(go);
             DefaultController = go.AddComponent<SfxController>(); //Default
-            DefaultController.Initialize(settings.Data);
+            DefaultController.Initialize(settings.Data, null);
 
             foreach (var item in settings.Items)
             {
@@ -39,7 +35,7 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
                 
                 var sfxController = customGo.AddComponent<SfxController>();
                 sfxController.Key = item.Identifier;
-                sfxController.Initialize(item.Data);
+                sfxController.Initialize(item.Data, item.Identifier);
 
                 _customControllers.Add(item.Identifier, sfxController);
             }
@@ -56,7 +52,18 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
         internal float Volume
         {
             get => _audioSource.volume;
-            set => _audioSource.volume = value;
+            set
+            {
+                _audioSource.volume = value;
+                if (!string.IsNullOrWhiteSpace(_volumeSaveKey))
+                {
+                    PlayerPrefsEx.SetFloat(_volumeSaveKey, value, true);
+                }
+                else
+                {
+                    Debug.LogWarning("Unable to save new volume for sfx system into player prefs: Not initialized yet");
+                }
+            }
         }
 
         #endregion
@@ -65,20 +72,25 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
         private float _minAmbienceDelay;
         private float _maxAmbienceDelay;
 
+        private string _volumeSaveKey;
+
         #region Builtin Methods
 
         private void Awake()
         {
             _audioSource = gameObject.AddComponent<AudioSource>();
-        }
+        } 
 
         #endregion
 
-        internal void Initialize(SfxData data)
+        internal void Initialize(SfxData data, string systemKey)
         {
             _audioSource.outputAudioMixerGroup = data.MixerGroup;
             _audioSource.playOnAwake = false;
             _audioSource.loop = false;
+
+            _volumeSaveKey = (string.IsNullOrWhiteSpace(systemKey) ? "default" : systemKey) + ".volume";
+            _audioSource.volume = PlayerPrefsEx.GetFloat(_volumeSaveKey, data.InitialVolume);
         }
 
         internal ISfxPlayedClip PlayInLoop(SfxClip clip)
