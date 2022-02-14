@@ -38,4 +38,4 @@ There are two types of SFX Clips:
 You can always setup a custom overwritten value for each audio clip via this asset.
 
 ### Prefs Support
-If you change the value programmatically via `SfxSystem.Default/Get("mykey).Volume` the new value is stored into Player Prefs. On reload it will load volume from with player prefs. Naming is "sfx-system." + identifier.
+If you change the value programmatically via `SfxSystem.Default/Get("mykey).Volume` the new value is stored into Player Prefs. On reload it will load volume from with player prefs. Naming is identifier + ".volume".
