@@ -4,23 +4,23 @@ using UnityEngine;
 namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Types
 {
     [Serializable]
-    public class AudioClipItem
+    public class AudioClipItemEx : AudioClipItem
     {
         #region Inspector Data
 
         [SerializeField]
-        private AudioClip audioClip;
-
+        private AudioClip inClip;
+        
         [SerializeField]
-        private float volume = 1f;
+        private AudioClip outClip;
 
         #endregion
 
         #region Properties
 
-        public AudioClip AudioClip => audioClip;
+        public AudioClip InClip => inClip;
 
-        public float Volume => volume;
+        public AudioClip OutClip => outClip;
 
         #endregion
     }
