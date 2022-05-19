@@ -26,6 +26,8 @@ SfxSystem.Default.Play...
 SfxSystem.Get("mykey").Play...
 ```
 
+or use `SfxSource` on a game object: Select here a preset from SFX Settings.
+
 There are three methods to play SFX:
 * `PlayOneShot` - Play one times the given clip (supports `AudioClip` too)
 * `PlayAmbience` - Play the clip multiple times depends on setup delay values - Stop it via result `ISfxPlayedClip`
