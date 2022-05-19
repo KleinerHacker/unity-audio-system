@@ -1,5 +1,5 @@
-# unity-sfx-system
-SFX System for Unity
+# unity-audio-system
+Audio System for Unity
 
 # install
 Use this repository directly in Unity.
@@ -19,7 +19,7 @@ Scopes:
 To configure see project settings and setup default volumes and mixer groups. Additional you can create custom SFX systems.
 
 ### API
-To play a SFX Clip (own Asset type!) use `SfxSystem`:
+To play Audio Clip (own Asset type!) use `SfxSystem`:
 
 ```CSharp
 SfxSystem.Default.Play...
