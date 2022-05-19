@@ -47,15 +47,15 @@ namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Components.Sfx
 
         #endregion
         
-        internal ISfxPlayedClip PlayInLoop(SfxClip clip) => SfxUtils.PlayInLoop(this, _audioSource, clip);
+        public ISfxPlayedClip PlayInLoop(SfxClip clip) => SfxUtils.PlayInLoop(this, _audioSource, clip);
 
-        internal ISfxPlayedClip PlayInLoop(SfxClip clip, float minPlayTime, float maxPlayTime) => 
+        public ISfxPlayedClip PlayInLoop(SfxClip clip, float minPlayTime, float maxPlayTime) => 
             SfxUtils.PlayInLoop(this, _audioSource, clip, minPlayTime, maxPlayTime);
 
-        internal void PlayOneShot(SfxClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
+        public void PlayOneShot(SfxClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
 
-        internal void PlayOneShot(AudioClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
+        public void PlayOneShot(AudioClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
 
-        internal ISfxPlayedClip PlayAsAmbient(SfxClip clip) => SfxUtils.PlayAsAmbient(this, _audioSource, clip, _minAmbienceDelay, _maxAmbienceDelay);
+        public ISfxPlayedClip PlayAsAmbient(SfxClip clip) => SfxUtils.PlayAsAmbient(this, _audioSource, clip, _minAmbienceDelay, _maxAmbienceDelay);
     }
 }
