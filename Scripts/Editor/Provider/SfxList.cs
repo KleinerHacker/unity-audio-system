@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Provider
+namespace UnityAudio.Editor.audio_system.Scripts.Editor.Provider
 {
     public sealed class SfxList : ReorderableList
     {

@@ -1,13 +1,13 @@
-using System;
 using System.Linq;
+using UnityAudio.Editor.audio_system.Scripts.Editor.Utils;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
 using UnityEditor;
 using UnityEditorEx.Editor.editor_ex.Scripts.Editor;
 using UnityEditorEx.Editor.editor_ex.Scripts.Editor.Commons;
+using UnityEditorEx.Editor.editor_ex.Scripts.Editor.Utils.Extensions;
 using UnityEngine;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types;
 
-namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Assets
+namespace UnityAudio.Editor.audio_system.Scripts.Editor.Assets.Sfx
 {
     [CustomEditor(typeof(RandomSfxClip))]
     public sealed class RandomSfxClipEditor : AutoEditor
@@ -49,6 +49,22 @@ namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Assets
                         property.FindPropertyRelative("audioClip").objectReferenceValue = audioClip;
                         property.FindPropertyRelative("volume").floatValue = 1f;
                     }
+                }
+            }
+
+            if (GUILayout.Button("Calculate Volumes"))
+            {
+                var properties = serializedObject.FindProperties("items");
+                
+                var volumes = VolumeUtils.CalculateVolumes(
+                    properties
+                        .Select(x => (AudioClip) x.FindPropertyRelative("audioClip").objectReferenceValue)
+                        .ToArray()
+                );
+                for (var i = 0; i < properties.Length; i++)
+                {
+                    var property = properties[i];
+                    property.FindPropertyRelative("volume").floatValue = volumes[i];
                 }
             }
         }

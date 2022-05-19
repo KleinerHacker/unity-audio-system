@@ -1,10 +1,11 @@
 using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
 using UnityEngine;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime
 {
-    public static class UnitySfxStartupEvents
+    public static class UnityAudioStartupEvents
     {
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSplashScreen)]
         public static void Initialize()

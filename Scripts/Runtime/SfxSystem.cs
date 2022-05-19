@@ -1,9 +1,11 @@
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Components;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Components.Sfx;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Types;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime
 {
     public static class SfxSystem
     {
@@ -31,6 +33,8 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime
         }
 
         public ISfxPlayedClip PlayInLoop(SfxClip clip) => _controller.PlayInLoop(clip);
+        
+        public ISfxPlayedClip PlayInLoop(SfxClip clip, float minPlayTime, float maxPlayTime) => _controller.PlayInLoop(clip, minPlayTime, maxPlayTime);
 
         public void PlayOneShot(SfxClip clip) => _controller.PlayOneShot(clip);
 
