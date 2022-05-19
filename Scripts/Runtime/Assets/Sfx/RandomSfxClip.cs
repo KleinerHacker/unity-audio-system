@@ -1,11 +1,11 @@
 using System;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Types;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEngine;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx
 {
-    [CreateAssetMenu(menuName = UnitySfxConstants.Menu.Asset.Root + "/Random SFX Clip")]
+    [CreateAssetMenu(menuName = UnityAudioConstants.Menu.Asset.SfxMenu + "/Random SFX Clip")]
     public sealed class RandomSfxClip : SfxClip
     {
         #region Inspector Data

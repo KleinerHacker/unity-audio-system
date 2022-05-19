@@ -1,12 +1,13 @@
 {
-  "name": "org.pcsoft.sfx-system",
-  "version": "1.1.3",
-  "displayName": "SFX System",
-  "description": "SFX System for Unity",
+  "name": "org.pcsoft.audio-system",
+  "version": "2.0.0",
+  "displayName": "Audio System",
+  "description": "Audio System for Unity",
   "unity": "2021.1",
   "keywords": [
     "audio",
     "SFX",
+    "music",
     "tooling"
   ],
   "dependencies": {
@@ -19,6 +20,6 @@
   "author": {
     "name": "Pfeiffer C Soft",
     "email": "kl3in3rhack3r@gmail.com",
-    "url": "https://github.com/KleinerHacker/unity-sfx-system"
+    "url": "https://github.com/KleinerHacker/unity-audio-system"
   }
 }

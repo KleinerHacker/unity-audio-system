@@ -1,9 +1,9 @@
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Types;
 using UnityEngine;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx
 {
-    [CreateAssetMenu(menuName = UnitySfxConstants.Menu.Asset.Root + "/Simple SFX Clip")]
+    [CreateAssetMenu(menuName = UnityAudioConstants.Menu.Asset.SfxMenu + "/Simple SFX Clip")]
     public sealed class SimpleSfxClip : SfxClip
     {
         #region Inspector Data

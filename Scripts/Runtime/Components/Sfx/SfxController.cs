@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using UnityAnimation.Runtime.animation.Scripts.Runtime.Utils;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Types;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Utils;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Components.Sfx
 {
     public sealed class SfxController : MonoBehaviour
     {
@@ -91,82 +93,20 @@ namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Components
 
             _volumeSaveKey = (string.IsNullOrWhiteSpace(systemKey) ? "default" : systemKey) + ".volume";
             _audioSource.volume = PlayerPrefsEx.GetFloat(_volumeSaveKey, data.InitialVolume);
+
+            _minAmbienceDelay = data.MinAmbientDelay;
+            _maxAmbienceDelay = data.MaxAmbientDelay;
         }
 
-        internal ISfxPlayedClip PlayInLoop(SfxClip clip)
-        {
-            var playedClip = new SfxLoopPlayedClip();
-            PlayLooped(clip, playedClip);
+        internal ISfxPlayedClip PlayInLoop(SfxClip clip) => SfxUtils.PlayInLoop(this, _audioSource, clip);
 
-            return playedClip;
-        }
-        
-        private void PlayLooped(SfxClip clip, SfxLoopPlayedClip playedClip)
-        {
-            if (playedClip.IsStop)
-                return;
-                
-            var item = clip.NextClip;
-            _audioSource.PlayOneShot(item.AudioClip, item.Volume);
+        internal ISfxPlayedClip PlayInLoop(SfxClip clip, float minPlayTime, float maxPlayTime) => 
+            SfxUtils.PlayInLoop(this, _audioSource, clip, minPlayTime, maxPlayTime);
 
-            AnimationBuilder.Create(this)
-                .Wait(item.AudioClip.length, () => PlayLooped(clip, playedClip))
-                .Start();
-        }
+        internal void PlayOneShot(SfxClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
 
-        internal void PlayOneShot(SfxClip clip)
-        {
-            var item = clip.NextClip;
-            _audioSource.PlayOneShot(item.AudioClip, item.Volume);
-        }
+        internal void PlayOneShot(AudioClip clip) => SfxUtils.PlayOneShot(_audioSource, clip);
 
-        internal void PlayOneShot(AudioClip clip) => _audioSource.PlayOneShot(clip);
-
-        internal ISfxPlayedClip PlayAsAmbient(SfxClip clip)
-        {
-            var playedClip = new SfxAmbiencePlayedClip();
-            PlayAmbient(clip, playedClip);
-
-            return playedClip;
-        }
-
-        private void PlayAmbient(SfxClip clip, SfxAmbiencePlayedClip playedClip)
-        {
-            AnimationBuilder.Create(this)
-                .Wait(Random.Range(_minAmbienceDelay, _maxAmbienceDelay), () =>
-                {
-                    if (playedClip.IsStop)
-                        return;
-                    
-                    PlayOneShot(clip);
-                    PlayAmbient(clip, playedClip);
-                })
-                .Start();
-        }
-
-        private sealed class SfxLoopPlayedClip : ISfxPlayedClip
-        {
-            internal bool IsStop { get; private set; }
-            
-            public void Stop()
-            {
-                IsStop = true;
-            }
-        }
-
-        private sealed class SfxAmbiencePlayedClip : ISfxPlayedClip
-        {
-            internal bool IsStop { get; private set; }
-            
-            public void Stop()
-            {
-                IsStop = true;
-            }
-        }
-    }
-
-    public interface ISfxPlayedClip
-    {
-        void Stop();
+        internal ISfxPlayedClip PlayAsAmbient(SfxClip clip) => SfxUtils.PlayAsAmbient(this, _audioSource, clip, _minAmbienceDelay, _maxAmbienceDelay);
     }
 }

@@ -1,8 +1,7 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Types
 {
     [Serializable]
     public sealed class AudioClipItem

@@ -1,7 +1,7 @@
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Types;
 using UnityEngine;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Types;
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx
 {
     public abstract class SfxClip : ScriptableObject
     {

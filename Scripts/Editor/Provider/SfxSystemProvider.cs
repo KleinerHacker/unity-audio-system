@@ -1,11 +1,12 @@
 using System.Linq;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets;
+using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
 using UnityCommonEx.Runtime.common_ex.Scripts.Runtime.Utils.Extensions;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets;
 
-namespace UnitySfx.Editor.sfx_system.Scripts.Editor.Provider
+namespace UnityAudio.Editor.audio_system.Scripts.Editor.Provider
 {
     public sealed class SfxSystemProvider : SettingsProvider
     {

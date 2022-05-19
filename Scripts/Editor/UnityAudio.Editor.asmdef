@@ -1,9 +1,11 @@
 {
-    "name": "UnitySfx.Editor",
-    "rootNamespace": "UnitySfx.Editor",
-    "references": ["GUID:ba2442629f6ce0343b00f9e6891a9ce3",
-"GUID:5d0595cabca3f65418ec01a472735d07",
-"GUID:626cca1954403c942aaa892ce194af26"],
+    "name": "UnityAudio.Editor",
+    "rootNamespace": "UnityAudio.Editor",
+    "references": [
+        "GUID:ba2442629f6ce0343b00f9e6891a9ce3",
+        "GUID:5d0595cabca3f65418ec01a472735d07",
+        "GUID:626cca1954403c942aaa892ce194af26"
+    ],
     "includePlatforms": [
         "Editor"
     ],

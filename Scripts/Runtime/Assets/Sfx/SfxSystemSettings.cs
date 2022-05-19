@@ -1,13 +1,13 @@
 using System;
-#if !UNITY_EDITOR
-using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
-#endif
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
+#if !UNITY_EDITOR
+using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
+#endif
 
-namespace UnitySfx.Runtime.sfx_system.Scripts.Runtime.Assets
+namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx
 {
     public sealed class SfxSystemSettings : ScriptableObject
     {

@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - audioClip: {fileID: 8300000, guid: 8530738a967223a4694d5690824df1a7, type: 3}
-    volume: 1
+    volume: 0.8142322
   - audioClip: {fileID: 8300000, guid: 3390a317676cd1f429034264ad3219f3, type: 3}
-    volume: 1
+    volume: 0.7262973
   - audioClip: {fileID: 8300000, guid: 8477683ad460a3a439545a6786494bc3, type: 3}
-    volume: 1
+    volume: 1.0267866
   - audioClip: {fileID: 8300000, guid: ffc1b801ca735ee41afc3fe1884219aa, type: 3}
-    volume: 1
+    volume: 0.65782475
   - audioClip: {fileID: 8300000, guid: 32362bc5a5c73df4497b842e5d809295, type: 3}
-    volume: 1
+    volume: 0.810972
   - audioClip: {fileID: 8300000, guid: 527c140db0026d741bb34660a8ad9c75, type: 3}
-    volume: 1
+    volume: 1.3928819
   - audioClip: {fileID: 8300000, guid: b0e333c3c45dc084a93e056b301facb7, type: 3}
-    volume: 1
+    volume: 0.1885007
   - audioClip: {fileID: 8300000, guid: 1e2b39fd97b03c245837ce6dfe1bb9cb, type: 3}
-    volume: 1
+    volume: 0.41026133
   - audioClip: {fileID: 8300000, guid: a4521b7cf3087784a8fe0eac2db8a067, type: 3}
-    volume: 1
+    volume: 0.78078926
