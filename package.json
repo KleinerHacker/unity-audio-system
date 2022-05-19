@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.audio-system",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "displayName": "Audio System",
   "description": "Audio System for Unity",
   "unity": "2021.1",
