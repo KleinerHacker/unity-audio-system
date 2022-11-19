@@ -1,5 +1,4 @@
-using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
-using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets;
+using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime;
 using UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ namespace UnityAudio.Runtime.audio_system.Scripts.Runtime
         public static void Initialize()
         {
             Debug.Log("Load SFX settings");
-            AssetResourcesLoader.Instance.LoadAssets<SfxSystemSettings>("");
+            AssetResourcesLoader.LoadFromResources<SfxSystemSettings>("");
         }
     }
 }
