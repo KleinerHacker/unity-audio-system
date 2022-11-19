@@ -1,9 +1,9 @@
 {
   "name": "org.pcsoft.audio-system",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "displayName": "Audio System",
   "description": "Audio System for Unity",
-  "unity": "2021.1",
+  "unity": "2021.3",
   "keywords": [
     "audio",
     "SFX",
@@ -11,11 +11,11 @@
     "tooling"
   ],
   "dependencies": {
-    "org.pcsoft.editor-ex": "1.1.4",
-    "org.pcsoft.asset-loader": "1.1.0",
+    "org.pcsoft.editor-ex": "1.1.12",
+    "org.pcsoft.asset-loader": "2.0.0",
     "org.pcsoft.prefs-ex": "1.2.0",
-    "org.pcsoft.common-ex": "1.1.4",
-    "org.pcsoft.animation": "1.2.3"
+    "org.pcsoft.common-ex": "1.1.8",
+    "org.pcsoft.animation": "1.2.4"
   },
   "author": {
     "name": "Pfeiffer C Soft",

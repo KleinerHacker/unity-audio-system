@@ -1,47 +1,20 @@
 using System;
 using UnityEditor;
+using UnityEditorEx.Runtime.editor_ex.Scripts.Runtime.Assets;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Serialization;
-#if !UNITY_EDITOR
-using UnityAssetLoader.Runtime.asset_loader.Scripts.Runtime.Loader;
-#endif
 
 namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Assets.Sfx
 {
-    public sealed class SfxSystemSettings : ScriptableObject
+    public sealed class SfxSystemSettings : ProviderAsset<SfxSystemSettings>
     {
         #region Static Area
 
-#if UNITY_EDITOR
-        private const string Path = "Assets/Resources/sfx-system.asset";
-#endif
-
-        public static SfxSystemSettings Singleton
-        {
-            get
-            {
-#if UNITY_EDITOR
-                var settings = AssetDatabase.LoadAssetAtPath<SfxSystemSettings>(Path);
-                if (settings == null)
-                {
-                    Debug.Log("Unable to find game settings, create new");
-
-                    settings = new SfxSystemSettings();
-                    AssetDatabase.CreateAsset(settings, Path);
-                    AssetDatabase.SaveAssets();
-                    AssetDatabase.Refresh();
-                }
-
-                return settings;
-#else
-                return AssetResourcesLoader.Instance.GetAsset<SfxSystemSettings>();
-#endif
-            }
-        }
+        public static SfxSystemSettings Singleton => GetSingleton("SFX System", "sfx-system.asset");
 
 #if UNITY_EDITOR
-        public static SerializedObject SerializedSingleton => new SerializedObject(Singleton);
+        public static SerializedObject SerializedSingleton => GetSerializedSingleton("SFX System", "sfx-system.asset");
 #endif
 
         #endregion
