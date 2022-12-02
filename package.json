@@ -1,6 +1,6 @@
 {
   "name": "org.pcsoft.audio-system",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "displayName": "Audio System",
   "description": "Audio System for Unity",
   "unity": "2021.3",
@@ -11,8 +11,8 @@
     "tooling"
   ],
   "dependencies": {
-    "org.pcsoft.editor-ex": "1.1.12",
-    "org.pcsoft.asset-loader": "2.0.0",
+    "org.pcsoft.editor-ex": "1.1.15",
+    "org.pcsoft.asset-loader": "2.0.1",
     "org.pcsoft.prefs-ex": "1.2.0",
     "org.pcsoft.common-ex": "1.1.8",
     "org.pcsoft.animation": "1.2.4"

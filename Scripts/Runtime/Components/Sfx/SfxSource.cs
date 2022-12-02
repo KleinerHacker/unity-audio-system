@@ -9,7 +9,7 @@ using UnityPrefsEx.Runtime.prefs_ex.Scripts.Runtime.Utils;
 
 namespace UnityAudio.Runtime.audio_system.Scripts.Runtime.Components.Sfx
 {
-    [AddComponentMenu(UnityAudioConstants.Menu.Asset.SfxMenu + "/SFX Source")]
+    [AddComponentMenu(UnityAudioConstants.Menu.Component.SfxMenu + "/SFX Source")]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(AudioSource))]
     public sealed class SfxSource : MonoBehaviour

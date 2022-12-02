@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100f9915dec742559aff040048bc3bbb, type: 3}
+  m_Name: MusicLayer
+  m_EditorClassIdentifier: 
+  layers:
+  - name: Base Layer
+    activatedByDefault: 1
+    introVariants:
+    - name: Default
+      clips:
+      - {fileID: 8300000, guid: e2a83ad2eb41f8045ae788680bbd9f28, type: 3}
+      clipOrder: 0
+    loopVariants:
+    - name: Default
+      clips:
+      - {fileID: 8300000, guid: bfb5faae3419deb4088f704943a38739, type: 3}
+      clipOrder: 0
+    extroVariants:
+    - name: Default
+      clips:
+      - {fileID: 8300000, guid: ad59027bf5c1ad84998a7739de24f416, type: 3}
+      clipOrder: 0
+    defaultIntroVariantIndex: 0
+    defaultLoopVariantIndex: 0
+    defaultExtroVariantIndex: 0
