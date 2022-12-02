@@ -11,6 +11,12 @@ namespace UnityAudio.Runtime.audio_system.Scripts.Runtime
                 public const string SfxMenu = Root + "/SFX";
                 public const string MusicMenu = Root + "/Music";
             }
+
+            public static class Component
+            {
+                public const string SfxMenu = Root + "/SFX";
+                public const string MusicMenu = Root + "/Music";
+            }
         }
     }
 }
